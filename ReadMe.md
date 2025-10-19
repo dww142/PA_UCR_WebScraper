@@ -10,6 +10,9 @@ The scripts use Selenium (https://www.selenium.dev/documentation/webdriver/getti
 
 After download there is a workbook that uses Polars (https://docs.pola.rs/user-guide/getting-started/) to read the Excel files to a data frame and write a consolidated file out. 
 
+[Web Scraper Notebook](AnnualSRSSummaryReport/srs_annual_report_web_scraper.ipynb)  
+[File Reader/Consolidator Notebook](AnnualSRSSummaryReport/ReturnA/return_a_file_reader.ipynb)  
+
 #### Annual SRS Summary Report
 The starting point is specifically the Annual SRS Summary Report (https://www.ucr.pa.gov/PAUCRSPUBLIC/SRSReport/AnnualSRSSummary)
 
