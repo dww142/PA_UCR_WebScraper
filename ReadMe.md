@@ -45,6 +45,7 @@ After merging the data, the resulting tables includes the following columns:
 - BeginDate
 - EndDate
 - Classification of Offenses
+- ClassificationSortOrder
 - Offenses Reported
 - Unfounded
 - Actual Offenses
@@ -54,9 +55,18 @@ After merging the data, the resulting tables includes the following columns:
 - SourceFile
   - This is included for troubleshooting missing, blank, or erroneus data to be able to check the individual files. 
 
-Additional metadata - The ClassificationOfOffenses.xlsx file contains 
+The process pulls in Classification Of Offenses as a column. The values in this column include multiple types of records (detailed breakouts, subtotals, grand totals) in the same column.  
+The ClassificationOfOffenses.xlsx file creates a heirarchy of these values identifies record types 
+- Classification Part (part 1/2 offenses label)
+- Classification Category
+- Classification Sub Category
+- Classification Of Offenses 
+
+The join between the consolidated data set and the classification categories includes a join on the derive Classification Sort Order column to ensure columns with the same name (i.e., Drug violations like 'Marijuana' is listed once for Sale and Manufacturing and once for Possession).  
+![Screenshot of Classifications and Record Types summary](Images/ClassificationRecordTypes.png)
+
+Additional metadata - The ClassificationOfOffenses.xlsx file also contains 
 - a list of counties and their corresponding FIPS codes, for joining counties to other publicly avialable data (i.e., Census ACS data) to include population statistics as context for analysis. 
-- It also creates a hierarchical structure of the Classifications for creating subtotals by categories. 
 - An extract of Census data containing county profile data about population, income, educational attainment, employment, and some housing data. 
   - This is based on another project not yet on Github (someday...)
   - Data Notes for this set: 
