@@ -1,4 +1,4 @@
-### PA UCR Web Scrarper 
+### PA UCR Web Scraper 
 This repository is a set of tools for automating interaction with the Pennsylvania Uniform Crime Reporting (UCR) publicly available reports (https://www.ucr.pa.gov/PAUCRSPUBLIC/ReportsIndex/List). 
 
 This project is written in Python (https://www.python.org/downloads/) using Jupyter notebooks.  
