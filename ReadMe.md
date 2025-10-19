@@ -55,15 +55,24 @@ After merging the data, the resulting tables includes the following columns:
 - SourceFile
   - This is included for troubleshooting missing, blank, or erroneus data to be able to check the individual files. 
 
-The process pulls in Classification Of Offenses as a column. The values in this column include multiple types of records (detailed breakouts, subtotals, grand totals) in the same column.  
+The process pulls in Classification Of Offenses as a column. The values in this column include multiple types of records (detailed breakouts, subtotals, grand totals) in the same column (Sort Order is to replicate the order of these on the original report).  
 The ClassificationOfOffenses.xlsx file creates a heirarchy of these values identifies record types 
 - Classification Part (part 1/2 offenses label)
-- Classification Category
-- Classification Sub Category
+- Classification Category 
+- Classification Sub Category 
 - Classification Of Offenses 
 
-The join between the consolidated data set and the classification categories includes a join on the derive Classification Sort Order column to ensure columns with the same name (i.e., Drug violations like 'Marijuana' is listed once for Sale and Manufacturing and once for Possession).  
-![Screenshot of Classifications and Record Types summary](Images/ClassificationRecordTypes.png)
+Record Type
+- Total (The Part 1/2 total rows from the original; sum includes all offenses)
+- Detail (The lowest level of detail available for each offense; sum includes all offenses)
+- Aggregate - not all offenses have an aggregate; Burglary is the aggregate of the detail breakdowns of burglary
+- Aggregate Subtotal - only applies to the Sale/Manufacturing and Possession subtotal rows for Drug Violations; (Drug Abuse Violations is the aggregate). 
+
+In theory the sum of Total records should match the sum of Detail; however the breakouts for Gambling to not add up to the Gambling subtotal row.  
+<b>Recommendation:</b> filter to detail record types and use the classification hierarchy to calculate your own categorical aggregates and totals from the detail rows. 
+
+The join between the consolidated data set and the classification categories includes a join on the derived Classification Sort Order column to ensure columns with the same name (i.e., Drug violations like 'Marijuana' is listed once for Sale and Manufacturing and once for Possession).  
+RecordType is intended to indicate the level of detail of the Classification of Offense from the original report
 
 Additional metadata - The ClassificationOfOffenses.xlsx file also contains 
 - a list of counties and their corresponding FIPS codes, for joining counties to other publicly avialable data (i.e., Census ACS data) to include population statistics as context for analysis. 
